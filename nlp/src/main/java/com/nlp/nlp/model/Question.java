@@ -1,11 +1,11 @@
 package com.nlp.nlp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
+@Entity(name = "question")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +21,11 @@ public class Question {
     long updatedDt;
     long createdBy;
     long updatedBy;
+    public Question() {
+        // Initialization code if needed
+    }
 
-    public Question(long id, String question, String technology, String topic, String level, String importance, String experienceRange) {
-        this.id = id;
+    public Question(String question, String technology, String topic, String level, String importance, String experienceRange) {
         this.question = question;
         this.technology = technology;
         this.topic = topic;
